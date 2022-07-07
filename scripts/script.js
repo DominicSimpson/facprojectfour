@@ -25,12 +25,13 @@ for (let i = 0; i < cart.length; i++) {
     
     cart[i].addEventListener('click', () => {  // adds each selected item to cart, stored in cartNumbers() function
         console.log("Added to Cart");
-        cartNumbers();
+        cartNumbers(products[i]);
     })
 
 }
 
-function cartNumbers() {
+function cartNumbers(product) {
+
     let productNumbers = localStorage.getItem('cartNumbers'); // stores input in Local Storage section in 
                                                                 //Application section of Chrome Inspector
     
@@ -48,6 +49,34 @@ function cartNumbers() {
         localStorage.setItem('cartNumbers', 1);
         document.querySelector('.cart span').textContent = 1;
     }
+
+    setItems(product);
+}
+
+function setItems(product) { //Matches each cart item clicked with approparite object in products array above
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems);
+    console.log("My Cart Items are", cartItems);
+
+    if(cartItems !== null) {
+
+        if(cartItems[product.tag] === undefined) {
+            cartItems = {
+                ...cartItems, // spread operator takes everything that was already selected and adds it to the newly selected products
+                [product.tag]: product
+            }
+        }
+
+        cartItems[product.tag].inCart += 1; 
+    } else {
+        product.inCart = 1;
+        cartItems = {
+            [product.tag]: product
+        }
+    }
+    
+    localStorage.setItem('productsInCart', JSON.stringify(cartItems)); // sets each item in Local Storage as a JSON string format
+                                                                       // rather than as a JavaScript object
 }
 
 function onLoadCartNumbers() { // checks the Local Storage and adds the items to the cart displayed on the screen

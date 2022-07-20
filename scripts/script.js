@@ -26,6 +26,7 @@ for (let i = 0; i < cart.length; i++) {
     cart[i].addEventListener('click', () => {  // adds each selected item to cart, stored in cartNumbers() function
         console.log("Added to Cart");
         cartNumbers(products[i]);
+        totalCost(products[i]);
     })
 
 }
@@ -77,6 +78,22 @@ function setItems(product) { //Matches each cart item clicked with approparite o
     
     localStorage.setItem('productsInCart', JSON.stringify(cartItems)); // sets each item in Local Storage as a JSON string format
                                                                        // rather than as a JavaScript object
+}
+
+function totalCost(product) {
+
+    let cartCost = localStorage.getItem('totalCost');
+
+    console.log("My Cart cost is", cartCost);
+    console.log(typeof cartCost);
+
+    if(cartCost !== null) {
+        cartCost = parseInt(cartCost); // totalCost is incremented numerically as cartCost is coverted to a number type
+        localStorage.setItem('totalCost', cartCost + product.price);
+    } else {
+        localStorage.setItem('totalCost', product.price);
+    }
+
 }
 
 function onLoadCartNumbers() { // checks the Local Storage and adds the items to the cart displayed on the screen

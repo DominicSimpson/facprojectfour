@@ -8,15 +8,15 @@ let products = [ // array containing each an object of each item
         inCart: 0
     },
     {
-        name: 'Apples',
-        tag: 'apples',
-        price: 10,
+        name: 'Apple Single',
+        tag: 'apple single',
+        price: 0.50,
         inCart: 0
     },
     {
-        name: 'Avocados',
-        tag: 'avocados',
-        price: 10,
+        name: 'Avocado',
+        tag: 'avocado',
+        price: 1.00,
         inCart: 0
     }
 ];
@@ -104,4 +104,45 @@ function onLoadCartNumbers() { // checks the Local Storage and adds the items to
     }
 }
 
+function displayCart() {
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems); // in JSON format
+    let productContainer = document.querySelector('.products');
+
+    console.log(cartItems);
+    if (cartItems && productContainer) {
+        productContainer.innerHTML = '';
+        Object.values(cartItems).map(item => {
+            productContainer.innerHTML += 
+            `<div class="product">
+                <ion-icon name="close-circle"></ion-icon>
+                <img src="./images/${item.tag}.jpg">
+                <span>${item.name}</span>
+            </div>
+            <div class="price">
+                ${item.price}.00
+            </div>
+            <div class="quantity">
+                <ion-icon class="decrease" name="arrow-dropleft-circle"></ion-icon>
+                <span>${item.inCart}</span>
+                <ion-icon class="increase" name="arrow-dropright-circle"></ion-icon>
+            </div>
+            <div class="total">
+                ${item.inCart * item.price}.00
+            </div>
+            `
+        });
+
+        productContainer.innerHTML += 
+            `<div class="basketTotalContainer">
+                <h4 class="basketTotalTitle">Basket Total</h4>
+                <h4 class="basketTotal">
+                    ${cartCost}
+                </h4>
+            </div>
+            `;
+    }
+}
+
 onLoadCartNumbers(); //checks cart displayed on the screen and updates when page is refreshed
+displayCart();

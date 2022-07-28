@@ -96,12 +96,20 @@ li a {
 
 /* ----------------- Main section --------------- */
 
+h1 {
+	font-weight:			bold;
+	color:					#000;
+	font-family:			'Oswald', sans-serif;
+	font-size:				1em;
+	text-align: 			center;
+    margin:                 5px;
+}
+
 p {
 	font-family: 			Arial, Helvetica, sans-serif;
 	color:					#000;
 	clear:					both;
 	text-align:				justify;
-	margin:					15px;
 }
 
 .container,
@@ -118,6 +126,9 @@ p {
     margin-left: 20px;
     position: relative;
     overflow: hidden;
+    border: 1px solid #000;
+    background-color: white;
+    padding: 20px;
 }
 
 .add-cart {
@@ -128,6 +139,9 @@ p {
     opacity: 0;
     cursor: pointer;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    margin-left: -25px;
 }
 
 .image:hover .cart1,
@@ -136,7 +150,6 @@ p {
 .image:hover .cart4 {
     bottom: 50px;
     opacity: 1;
-    padding: 10px;
     text-decoration: none;
 }
 

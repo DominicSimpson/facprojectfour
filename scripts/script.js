@@ -28,162 +28,7 @@ let products = [ // array containing an object of each item
         tag: 'avocadosingle',
         price: 2.50,
         inCart: 0
-    },
-
-    {
-        name: 'Avocados packet of four',
-        tag: 'avocadospacketfour',
-        price: 2.50,
-        inCart: 0
-    },
-
-    {
-        name: 'Bananas bunch of five',
-        tag: 'bananasbunchfive',
-        price: 1.00,
-        inCart: 0
-    },
-
-    {
-        name: 'Blackberries packet',
-        tag: 'blackberriespacket',
-        price: 4.00,
-        inCart: 0
-    },
-
-    {
-        name: 'Cherries packet',
-        tag: 'cherriespacket',
-        price: 3.50,
-        inCart: 0
-    },
-
-    {
-        name: 'Coconut',
-        tag: 'coconut',
-        price: 2.75,
-        inCart: 0
-    },
-
-    {
-        name: 'Grapes bunch',
-        tag: 'grapesbunch',
-        price: 3.75,
-        inCart: 0
-    },
-
-    {
-        name: 'Grapefruit pink',
-        tag: 'grapefruitpink',
-        price: 0.60,
-        inCart: 0
-    },
-
-    {
-        name: 'Lemon single',
-        tag: 'lemonsingle',
-        price: 0.30,
-        inCart: 0
-    },
-
-    {
-        name: 'Lemon bunch four',
-        tag: 'lemonbunchfour',
-        price: 1.50,
-        inCart: 0
-    },
-
-    {
-        name: 'Lime single',
-        tag: 'limesingle',
-        price: 0.30,
-        inCart: 0
-    },
-
-    {
-        name: 'Limes bunch five',
-        tag: 'limesbunchfive',
-        price: 1.50,
-        inCart: 0
-    },
-
-    {
-        name: 'Orange single',
-        tag: 'orangesingle',
-        price: 0.30,
-        inCart: 0
-    },
-
-    {
-        name: 'Oranges bunch six',
-        tag: 'orangesbunchsix',
-        price: 1.75,
-        inCart: 0
-    },
-
-    {
-        name: 'Passionfruit',
-        tag: 'passionfruit',
-        price: 0.75,
-        inCart: 0
-    },
-
-    {
-        name: 'Peach single',
-        tag: 'peachsingle',
-        price: 0.65,
-        inCart: 0
-    },
-
-    {
-        name: 'Peaches packet four',
-        tag: 'peachespacketfour',
-        price: 3.99,
-        inCart: 0
-    },
-
-    {
-        name: 'Pear single',
-        tag: 'pearsingle',
-        price: 0.50,
-        inCart: 0
-    },
-
-    {
-        name: 'Pears packet four',
-        tag: 'pearspacketfour',
-        price: 2.50,
-        inCart: 0
-    },
-
-    {
-        name: 'Plums packet',
-        tag: 'plumspacket',
-        price: 2.25,
-        inCart: 0
-    },
-
-    {    
-        name: 'Pineapple large',
-        tag: 'pineapplelarge',
-        price: 1.99,
-        inCart: 0
-    },
-
-    {    
-        name: 'Raspberries packet',
-        tag: 'raspberriespacket',
-        price: 2.25,
-        inCart: 0
-    },
-
-    {    
-        name: 'Strawberries packet',
-        tag: 'strawberriespacket',
-        price: 3.99,
-        inCart: 0
-    }
-
+    }, 
 ];
 
 for(let i=0; i< carts.length; i++) { // runs a for loop and updates cart numbers and total cost with items from array above
@@ -298,19 +143,19 @@ function displayCart() {
             `<div class="product"><ion-icon name="close-circle"></ion-icon><img src="./images/${item.tag}.jpg" />
                 <span class="sm-hide">${item.name}</span>
             </div>
-            <div class="price sm-hide">$${item.price},00</div>
+            <div class="price sm-hide">&#163;${item.price}.00</div>
             <div class="quantity">
                 <ion-icon class="decrease " name="arrow-dropleft-circle"></ion-icon>
                     <span>${item.inCart}</span>
                 <ion-icon class="increase" name="arrow-dropright-circle"></ion-icon>   
             </div>
-            <div class="total">$${item.inCart * item.price},00</div>`;
+            <div class="total">&#163;${item.inCart * item.price}0</div>`;
         });
 
         productContainer.innerHTML += `
             <div class="basketTotalContainer">
                 <h4 class="basketTotalTitle">Basket Total</h4>
-                <h4 class="basketTotal">$${cart},00</h4>
+                <h4 class="basketTotal">&#163;${cart}00</h4>
             </div>`
 
         deleteButtons();

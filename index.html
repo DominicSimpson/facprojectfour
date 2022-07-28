@@ -1,80 +1,134 @@
 <!DOCTYPE html>
-<!-- Photo below on this page was taken by Dominic Simpson -->
 <html lang="en">
-
 <head>
-	<meta charset="utf-8">
-	<title>Fruit Shop</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/dominicsimpsoncss.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+    <title>Shopping Page</title>
 </head>
-
 <body>
-	<header>
-		<div class="overlay"></div>
-			<nav>
-				<h2>SHOP</h2>
-				<div class="cart">
-					<ion-icon name="basket"></ion-icon>Cart<span> 0 </span>
-				</div>
-			</nav>
-				
-			<div class="container">
+    <header>
+        <div class="overlay"></div>
+        <nav>
+            <h2>SHOP</h2>
+            <ul>
+                <li class="cart">
+                    <a href="cart.html">
+                        <ion-icon name="basket"></ion-icon>Cart<span>0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-				<div class="image">
-					<div class="largephotopicturewrapper">
-						<img src="images/bananas.jpg" alt="Photo of bananas">
-						<h3>Bunch of 5 Bananas</h3>
-						<h3>&#x000A3;0.75</h3>
-						<a class="add-cart cart1" href="#">Add Cart</a>
-					</div>
-				</div>
+    <div class="container">
+        
+        <div class="image">
+            <img src="images/applesingle.jpg" alt="Single apple">
+            <h3>Apple Single</h3>
+            <h3>&#163;0.50</h3>
+            <a class="add-cart cart1" href="#">Add to Basket</a>
+            <input type="hidden" value="0.5" />
+        </div>
+        
+        <div class="image">
+            <img src="images/applespacketsix.jpg" alt="Packet of six apples">
+            <h3>Apples packet of six</h3>
+            <h3>&#163;2.50</h3>
+            <a class="add-cart cart2" href="#">Add to Basket</a>
+            <input type="hidden" value="2" />
+        </div>
+        
+        <div class="image">
+            <img src="images/apricotspacketsix.jpg" alt="Packet of six apricots">
+            <h3>Apricots packet of six</h3>
+            <h3>&#163;2.50</h3>
+            <a class="add-cart cart3" href="#">Add to Basket</a>
+            <input type="hidden" value="2.50" />
+        </div>
+        
+        <div class="image">
+            <img src="images/avocadosingle.jpg" alt="Single avocado">
+            <h3>Avocado single</h3>
+            <h3>&#163;0.80</h3>
+            <a class="add-cart cart4" href="#">Add to Basket</a>
+            <input type="hidden" value="0.8" />
+        </div>
+        
+        <div class="image">
+            <img src="images/avocadospacketfour.jpg" alt="Packet of four avocados">
+            <h3>Avocados packet of four</h3>
+            <h3>&#163;3.50</h3>
+            <a class="add-cart cart5" href="#">Add to Basket</a>
+            <input type="hidden" value="3.50" />
+        </div>
+        
+        <div class="image">
+            <img src="images/bananasbunchfive.jpg" alt="Bunch of five bananas">
+            <h3>Bananas bunch of five</h3>
+            <h3>&#163;1.00</h3>
+            <a class="add-cart cart6" href="#">Add to Basket</a>
+            <input type="hidden" value="1.00" />
+        </div>
+        
+        <div class="image">
+            <img src="images/blackberriespacket.jpg" alt="Packet of blackberries">
+            <h3>Blackberries packet</h3>
+            <h3>&#163;2.00</h3>
+            <a class="add-cart cart7" href="#">Add to Basket</a>
+            <input type="hidden" value="2.00" />
+        </div>
+        
+        <div class="image">
+            <img src="images/blueberriespacket.jpg" alt="Packet of blueberries">
+            <h3>Blueberries packet</h3>
+            <h3>&#163;4.00</h3>
+            <a class="add-cart cart8" href="#">Add to Basket</a>
+            <input type="hidden" value="4.00" />
+        </div>
+        
+        <div class="image">
+            <img src="images/cherriespacket.jpg" alt="Packet of blackberries">
+            <h3>Cherries packet</h3>
+            <h3>&#163;3.50</h3>
+            <a class="add-cart cart9" href="#">Add to Basket</a>
+            <input type="hidden" value="3.50" />
+        </div>
 
-				<div class="image">
-					<div class="largephotopicturewrapper">
-						<img src="images/apple_single.jpg" alt="Photo of single apple">
-						<h3>Apple Single</h3>
-						<h3>&#x000A3;0.50</h3>
-						<a class="add-cart cart2" href="#">Add Cart</a>
-					</div>
-				</div>
+        <div class="image">
+            <img src="images/coconut.jpg" alt="Packet of blackberries">
+            <h3>Coconut</h3>
+            <h3>&#163;2.75</h3>
+            <a class="add-cart cart10" href="#">Add to Basket</a>
+            <input type="hidden" value="2.75" />
+        </div>
 
-				<div class="image">
-					<div class="largephotopicturewrapper">
-						<img src="images/avocado.jpg" alt="Photo of avocado">
-						<h3>Avocado</h3>
-						<h3>&#x000A3;10</h3>
-						<a class="add-cart cart3" href="#">Add Cart</a>
-					</div>
-				</div>
+        <div class="image">
+            <img src="images/grapesbunch.jpg" alt="Bunch of grapes">
+            <h3>Grapes bunch</h3>
+            <h3>&#163;4.00</h3>
+            <a class="add-cart cart11" href="#">Add to Basket</a>
+            <input type="hidden" value="4.00" />
+        </div>
 
-				<div class="image">
-					<div class="largephotopicturewrapper">
-						<img src="images/apples_packet_six.jpg" alt="Photo of packet of six apples">
-						<h3>Packet of 6 Apples</h3>
-						<h3>&#x000A3;10</h3>
-						<a class="add-cart cart4" href="#">Add Cart</a>
-					</div>
-				</div>
+        <div class="image">
+            <img src="images/grapefruitpink.jpg" alt="Pink grapefruit">
+            <h3>Grapefruit pink</h3>
+            <h3>&#163;0.60</h3>
+            <a class="add-cart cart12" href="#">Add to Basket</a>
+            <input type="hidden" value="0.60" />
+        </div>
 
-			</div>
-	</header>
 
-	<div class="products-container">
-		<div class="product-header">
-			<h5 class="product-title">PRODUCT</h5>
-			<h5 class="price">PRICE</h5>
-			<h5 class="quantity">QUANTITY</h5>
-			<h5 class="total">TOTAL</h5>
-		</div>
-		<div class="products">
-			
-		</div>
-	</div>
+    
+    </div>
 
-	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> <!-- shopping cart icon -->
-	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-	<script src="scripts/script.js"></script>
+    <script src="scripts/script.js"></script>
 
 </body>
 </html>

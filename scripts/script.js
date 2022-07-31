@@ -291,19 +291,27 @@ function totalCost( product, action ) {
 }
 
 function displayCart() {
+    
     let cartItems = localStorage.getItem('productsInCart');
+    
     console.log('cartItems',cartItems);
+    
     if(cartItems){
         cartItems = JSON.parse(cartItems);
     }
 
     let cart = localStorage.getItem("totalCost");
+    
     cart = parseInt(cart);
 
     let productContainer = document.querySelector('.products');
+    
     let total =  0 ;
+    
     if( cartItems && productContainer ) { // generates items on Cart page
+        
         productContainer.innerHTML = '';
+        
         Object.values(cartItems).map( (item, index) => {
             console.log('item.inCart',parseInt(item.price));
             productContainer.innerHTML += 
@@ -320,12 +328,13 @@ function displayCart() {
             total += item.inCart * item.price;
         });
 
-        productContainer.innerHTML += `
+        productContainer.innerHTML += ` 
             <div class="basketTotalContainer">
                 <h4 class="basketTotalTitle">Basket Total:</h4>
-                <h4 class="basketTotal">&#163;${total.toFixed(2)}</h4>
+                <h4 class="basketTotal">&#163;${total.toFixed(2)}</h4>    
             </div>`
-
+                                                // formats the total into decimal to account for how the prices 
+                                                // are displayed in cart
         deleteButtons();
         manageQuantity();
     }
@@ -348,17 +357,27 @@ function manageQuantity() {
                                                     // depending on which buttons the user presses
         
         decreaseButtons[i].addEventListener('click', () => { // decreases quantity of items on button click
+            
             console.log(cartItems);
+            
             currentQuantity = decreaseButtons[i].parentElement.querySelector('span').textContent;
+            
             console.log(currentQuantity);
+            
             currentProduct = decreaseButtons[i].parentElement.previousElementSibling.previousElementSibling.querySelector('span').textContent.toLocaleLowerCase().replace(/ /g,'').trim();
+            
             console.log(currentProduct);
 
             if( cartItems[currentProduct].inCart > 1 ) {
+                
                 cartItems[currentProduct].inCart -= 1;
+                
                 cartNumbers(cartItems[currentProduct], "decrease");
+                
                 totalCost(cartItems[currentProduct], "decrease");
+                
                 localStorage.setItem('productsInCart', JSON.stringify(cartItems));
+                
                 displayCart();
             }
         });

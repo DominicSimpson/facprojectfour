@@ -1,4 +1,4 @@
-let carts = document.querySelectorAll('.add-cart');
+let carts = document.querySelectorAll('.add-cart'); // grabs every item that's been added to cart
 
 let products = [ // array containing an object of each item
 
@@ -217,7 +217,7 @@ function cartNumbers(product, action) {
 
     let cartItems = localStorage.getItem('productsInCart');
 
-    cartItems = JSON.parse(cartItems); // parseInt method is applied to JSON format
+    cartItems = JSON.parse(cartItems); // cartItems products are now in JSON format
 
     if (action) {
         
@@ -266,6 +266,9 @@ function setItems(product) { //Matches each cart item clicked with appropriate o
 
     localStorage.setItem('productsInCart', JSON.stringify(cartItems)); // sets each item in Local Storage as a JSON string format
                                                                       // rather than as a JavaScript object
+                                                                      // JSON is human readable text that stores and 
+                                                                      // transmits data objects consisting of attribute-value
+                                                                      // pairs and arrays
 }
 
 function totalCost( product, action ) {
@@ -296,20 +299,20 @@ function displayCart() {
 
     let productContainer = document.querySelector('.products');
     
-    if( cartItems && productContainer ) {
+    if( cartItems && productContainer ) { // generates items on Cart page
         productContainer.innerHTML = '';
         Object.values(cartItems).map( (item, index) => {
             productContainer.innerHTML += 
             `<div class="product"><ion-icon name="close-circle"></ion-icon><img src="./images/${item.tag}.jpg" />
                 <span class="sm-hide">${item.name}</span>
             </div>
-            <div class="price sm-hide">&#163;${item.price}.00</div>
+            <div class="price sm-hide">&#163;${item.price}0</div>
             <div class="quantity">
                 <ion-icon class="decrease " name="arrow-dropleft-circle"></ion-icon>
                     <span>${item.inCart}</span>
                 <ion-icon class="increase" name="arrow-dropright-circle"></ion-icon>   
             </div>
-            <div class="total">&#163;${item.inCart * item.price}0</div>`;
+            <div class="total">&#163;${item.inCart * item.price}.00</div>`;
         });
 
         productContainer.innerHTML += `
@@ -324,11 +327,17 @@ function displayCart() {
 }
 
 function manageQuantity() {
+
     let decreaseButtons = document.querySelectorAll('.decrease'); // gets decrease item button on screen and stores in variable
-    let increaseButtons = document.querySelectorAll('.increase');
+    
+    let increaseButtons = document.querySelectorAll('.increase'); // gets increase item button on screen and stores in variable
+    
     let currentQuantity = 0; // initialises variable
+
     let currentProduct = '';
+    
     let cartItems = localStorage.getItem('productsInCart');
+    
     cartItems = JSON.parse(cartItems);
 
     for(let i=0; i < increaseButtons.length; i++) { // Runs a for loop that either increases or decreases quantity of items
@@ -367,26 +376,38 @@ function manageQuantity() {
 }
 
 function deleteButtons() {
+
     let deleteButtons = document.querySelectorAll('.product ion-icon');
+    
     let productNumbers = localStorage.getItem('cartNumbers');
+    
     let cartCost = localStorage.getItem("totalCost");
+    
     let cartItems = localStorage.getItem('productsInCart');
+    
     cartItems = JSON.parse(cartItems);
+    
     let productName;
+    
     console.log(cartItems);
 
     for(let i=0; i < deleteButtons.length; i++) {
+        
         deleteButtons[i].addEventListener('click', () => {
+            
             productName = deleteButtons[i].parentElement.textContent.toLocaleLowerCase().replace(/ /g,'').trim();
            
             localStorage.setItem('cartNumbers', productNumbers - cartItems[(productName)].inCart);
+            
             localStorage.setItem('totalCost', cartCost - ( cartItems[productName].price * cartItems[productName].inCart));
 
             delete cartItems[productName];
+            
             localStorage.setItem('productsInCart', JSON.stringify(cartItems));
 
             displayCart();
             onLoadCartNumbers();
+        
         })
     }
 }

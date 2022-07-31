@@ -25,6 +25,22 @@ body {
 	background-color:		antiquewhite;			
 }
 
+.skiplink {
+	position:				absolute;
+	left: 					-10000px;
+}
+
+.skiplink:focus {
+	left:					0;
+	background-color: 		#4c712b;
+	color:					#ffff00;
+}
+
+.skiplink a:hover, a:focus {
+	color:					#4c712b;
+	text-decoration:		underline;
+}
+
 /* ----------------- Header section --------------- */
 
 header {
@@ -101,7 +117,6 @@ h1 {
 	color:					#000;
 	font-family:			'Oswald', sans-serif;
 	font-size:				1em;
-	text-align: 			center;
     margin:                 5px;
 }
 
@@ -121,8 +136,8 @@ p {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 50px;
-    padding-bottom: 100px;;
+    margin-top: 20px;
+    padding-bottom: 25px;
 }
 
 .image {
@@ -132,7 +147,7 @@ p {
     overflow: hidden;
     border: 1px solid #000;
     background-color: white;
-    padding: 20px;
+    padding: 10px;
 }
 
 .add-cart {
@@ -159,7 +174,7 @@ p {
 .image:hover .cart9,
 .image:hover .cart10,
 .image:hover .cart11,
-.image:hover .cart12
+.image:hover .cart12,
 .image:hover .cart13,
 .image:hover .cart14,
 .image:hover .cart15,

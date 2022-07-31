@@ -105,6 +105,10 @@ h1 {
     margin:                 5px;
 }
 
+h5 {
+    font-family:            Arial, Helvetica, sans-serif;
+}
+
 p {
 	font-family: 			Arial, Helvetica, sans-serif;
 	color:					#000;
@@ -147,7 +151,32 @@ p {
 .image:hover .cart1,
 .image:hover .cart2,
 .image:hover .cart3,
-.image:hover .cart4 {
+.image:hover .cart4,
+.image:hover .cart5,
+.image:hover .cart6,
+.image:hover .cart7,
+.image:hover .cart8,
+.image:hover .cart9,
+.image:hover .cart10,
+.image:hover .cart11,
+.image:hover .cart12
+.image:hover .cart13,
+.image:hover .cart14,
+.image:hover .cart15,
+.image:hover .cart16,
+.image:hover .cart17,
+.image:hover .cart18,
+.image:hover .cart19,
+.image:hover .cart20,
+.image:hover .cart21,
+.image:hover .cart22,
+.image:hover .cart23,
+.image:hover .cart24,
+.image:hover .cart25,
+.image:hover .cart26,
+.image:hover .cart27,
+.image:hover .cart28
+{
     bottom: 50px;
     opacity: 1;
     text-decoration: none;

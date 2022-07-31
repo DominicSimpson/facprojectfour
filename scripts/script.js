@@ -10,14 +10,14 @@ let products = [ // array containing an object of each item
     },
     
     {
-        name: 'Apples packet of six',
+        name: 'Apples packet six',
         tag: 'applespacketsix',
-        price: 2.00,
+        price: 2.50,
         inCart: 0
     },
     
     {
-        name: 'Apricots packet of six',
+        name: 'Apricots packet six',
         tag: 'apricotspacketsix',
         price: 2.50,
         inCart: 0
@@ -26,9 +26,169 @@ let products = [ // array containing an object of each item
     {
         name: 'Avocado single',
         tag: 'avocadosingle',
-        price: 2.50,
+        price: 0.80,
         inCart: 0
     }, 
+
+    {
+        name: 'Avocados packet four',
+        tag: 'avocadospacketfour',
+        price: 3.50,
+        inCart: 0
+    }, 
+
+    {
+        name: 'Bananas bunch five',
+        tag: 'bananasbunchfive',
+        price: 1.20,
+        inCart: 0
+    },
+
+    {
+        name: 'Blackberries packet',
+        tag: 'blackberriespacket',
+        price: 2.25,
+        inCart: 0
+    },
+
+    {
+        name: 'Blueberries packet',
+        tag: 'blueberriespacket',
+        price: 2.25,
+        inCart: 0
+    }, 
+
+    {
+        name: 'Cherries packet',
+        tag: 'cherriespacket',
+        price: 3.75,
+        inCart: 0
+    },
+
+    {
+        name: 'Coconut',
+        tag: 'coconut',
+        price: 3.00,
+        inCart: 0
+    }, 
+
+    {
+        name: 'Grapefruit',
+        tag: 'grapefruitpink',
+        price: 0.75,
+        inCart: 0
+    },
+
+    {
+        name: 'Grapes bunch',
+        tag: 'grapes',
+        price: 2.15,
+        inCart: 0
+    },
+
+    {
+        name: 'Lemon single',
+        tag: 'lemonsingle',
+        price: 0.30,
+        inCart: 0
+    },
+
+    {
+        name: 'Lemons bunch four',
+        tag: 'lemonsbunchfour',
+        price: 1.99,
+        inCart: 0
+    },
+
+    {
+        name: 'Lime single',
+        tag: 'limesingle',
+        price: 0.30,
+        inCart: 0
+    },
+
+    {
+        name: 'Limes bunch five',
+        tag: 'limesbunchfive',
+        price: 1.75,
+        inCart: 0
+    },
+
+    {
+        name: 'Mango',
+        tag: 'mango',
+        price: 3.00,
+        inCart: 0
+    },
+
+    {
+        name: 'Orange single',
+        tag: 'orange',
+        price: 0.50,
+        inCart: 0
+    },
+
+    {
+        name: 'Oranges bunch six',
+        tag: 'orangesbunchsix',
+        price: 3.10,
+        inCart: 0
+    },
+
+    {
+        name: 'Passionfruit',
+        tag: 'passionfruit',
+        price: 0.85
+    },
+
+    {
+        name: 'Peach single',
+        tag: 'peacesingle',
+        price: 0.70
+    },
+
+    {
+        name: 'Peaches packet four',
+        tag: 'peacesingle',
+        price: 3.99
+    },
+
+    {
+        name: 'Pear single',
+        tag: 'pearsingle',
+        price: 0.50
+    },
+
+    {
+        name: 'Pears packet four',
+        tag: 'pearspacketfour',
+        price: 2.50
+    },
+
+    {
+        name: 'Pineapple',
+        tag: 'pineapplelarge',
+        price: 1.85
+    },
+
+    {
+        name: 'Plums packet',
+        tag: 'plumspacket',
+        price: 2.25
+    },
+
+    {
+        name: 'Raspeberries packet',
+        tag: 'raspberriespacket',
+        price: 3.25
+    },
+
+    {
+        name: 'Strawberries packet',
+        tag: 'strawberriespacket',
+        price: 2.75
+    }
+
 ];
 
 for(let i=0; i< carts.length; i++) { // runs a for loop and updates cart numbers and total cost with items from array above
@@ -154,8 +314,8 @@ function displayCart() {
 
         productContainer.innerHTML += `
             <div class="basketTotalContainer">
-                <h4 class="basketTotalTitle">Basket Total</h4>
-                <h4 class="basketTotal">&#163;${cart}00</h4>
+                <h4 class="basketTotalTitle">Basket Total:</h4>
+                <h4 class="basketTotal">&#163;${cart}.00</h4>
             </div>`
 
         deleteButtons();
@@ -219,7 +379,7 @@ function deleteButtons() {
         deleteButtons[i].addEventListener('click', () => {
             productName = deleteButtons[i].parentElement.textContent.toLocaleLowerCase().replace(/ /g,'').trim();
            
-            localStorage.setItem('cartNumbers', productNumbers - cartItems[productName].inCart);
+            localStorage.setItem('cartNumbers', productNumbers - cartItems[(productName)].inCart);
             localStorage.setItem('totalCost', cartCost - ( cartItems[productName].price * cartItems[productName].inCart));
 
             delete cartItems[productName];

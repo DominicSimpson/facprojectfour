@@ -191,7 +191,9 @@ let products = [ // array containing an object of each item
 
 ];
 
-for(let i=0; i< carts.length; i++) { // runs a for loop and updates cart numbers and total cost with items from array above
+for(let i=0; i< carts.length; i++) {
+    console.log('carts',carts);
+    // runs a for loop and updates cart numbers and total cost with items from array above
     carts[i].addEventListener('click', () => {
         cartNumbers(products[i]);
         totalCost(products[i]);
@@ -200,8 +202,8 @@ for(let i=0; i< carts.length; i++) { // runs a for loop and updates cart numbers
 
 function onLoadCartNumbers() { // checks the Local Storage and adds the items to the cart displayed on the screen
 
-    let productNumbers = localStorage.getItem('cartNumbers'); 
-    
+    let productNumbers = localStorage.getItem('cartNumbers');
+
     if( productNumbers ) {
         document.querySelector('.cart span').textContent = productNumbers;
     }
@@ -209,18 +211,16 @@ function onLoadCartNumbers() { // checks the Local Storage and adds the items to
 
 function cartNumbers(product, action) {
 
-    let productNumbers = localStorage.getItem('cartNumbers'); // stores input in Local Storage section in 
+    let productNumbers = localStorage.getItem('cartNumbers'); // stores input in Local Storage section in
                                                               //Application section of Chrome Inspector
-    
-    productNumbers = parseInt(productNumbers); // parseInt method is used to convert string input of 
+
+    productNumbers = parseInt(productNumbers); // parseInt method is used to convert string input of
                                                //each selected item in Local Storage to number
-
     let cartItems = localStorage.getItem('productsInCart');
-
-    cartItems = JSON.parse(cartItems); // cartItems products are now in JSON format
-
+    if(cartItems){
+        cartItems = JSON.parse(cartItems); // cartItems products are now in JSON format
+    }
     if (action) {
-        
         localStorage.setItem("cartNumbers", productNumbers - 1); // decrements one to the productNumbers variable
                                                                 // in Local Storage inside the cartNumbers() function
         document.querySelector('.cart span').textContent = productNumbers - 1; // increments item to cart displayed on screen
@@ -292,33 +292,38 @@ function totalCost( product, action ) {
 
 function displayCart() {
     let cartItems = localStorage.getItem('productsInCart');
-    cartItems = JSON.parse(cartItems);
+    console.log('cartItems',cartItems);
+    if(cartItems){
+        cartItems = JSON.parse(cartItems);
+    }
 
     let cart = localStorage.getItem("totalCost");
     cart = parseInt(cart);
 
     let productContainer = document.querySelector('.products');
-    
+    let total =  0 ;
     if( cartItems && productContainer ) { // generates items on Cart page
         productContainer.innerHTML = '';
         Object.values(cartItems).map( (item, index) => {
+            console.log('item.inCart',parseInt(item.price));
             productContainer.innerHTML += 
             `<div class="product"><ion-icon name="close-circle"></ion-icon><img src="./images/${item.tag}.jpg" />
                 <span class="sm-hide">${item.name}</span>
             </div>
-            <div class="price sm-hide">&#163;${item.price}0</div>
+            <div class="price sm-hide">&#163;${item.price.toFixed(2)}</div>
             <div class="quantity">
                 <ion-icon class="decrease " name="arrow-dropleft-circle"></ion-icon>
                     <span>${item.inCart}</span>
                 <ion-icon class="increase" name="arrow-dropright-circle"></ion-icon>   
             </div>
-            <div class="total">&#163;${item.inCart * item.price}.00</div>`;
+            <div class="total">&#163;${item.inCart * item.price}</div>`;
+            total += item.inCart * item.price;
         });
 
         productContainer.innerHTML += `
             <div class="basketTotalContainer">
                 <h4 class="basketTotalTitle">Basket Total:</h4>
-                <h4 class="basketTotal">&#163;${cart}.00</h4>
+                <h4 class="basketTotal">&#163;${total.toFixed(2)}</h4>
             </div>`
 
         deleteButtons();
@@ -337,7 +342,6 @@ function manageQuantity() {
     let currentProduct = '';
     
     let cartItems = localStorage.getItem('productsInCart');
-    
     cartItems = JSON.parse(cartItems);
 
     for(let i=0; i < increaseButtons.length; i++) { // Runs a for loop that either increases or decreases quantity of items

@@ -10,4 +10,4 @@
 | totalCost          | Increments totalCost numerically as cartCost is converted to a number type  |
 | displayCart        | Cart page runs on load and displays items  | 
 | manageQuantity     | Increases or decreases quantity of item via item button on screen  |
-| deleteButtons      | Content Cell  |
+| deleteButtons      | Handles deleting an item on the Cart page  |

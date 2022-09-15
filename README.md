@@ -1,7 +1,8 @@
 # facprojectfour: Fruit Shop Shopping Cart
 ###### For the fourth project required as part of my application to Founders & Coders, I completed a Fruit Shop Shopping Cart. This was a complicated project to undertake, in which I learnt about the Local Storage function in Google Chrome for the first time. The project involved having two HTML pages - Index and Cart - linked to each other, as well as to the JavaScript, which included a products array that linked to each fruit item, for which there was one object.
 
-![Image of Fruit Page homepage](https://dominicsimpson.github.io/facprojectfour/assets/images/screenshotindexpage.jpg)
+![This is an image](https://dominicsimpson.github.io/facprojectfour/assets/images/screenshotindexpage.jpg)
+
 
 
 

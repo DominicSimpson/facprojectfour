@@ -13,4 +13,5 @@
 | manageQuantity     | Increases or decreases quantity of item via item button on screen  | None |
 | deleteButtons      | Handles deleting an item on the Cart page  | None |
 
-####### The displayCart function generated dynamically the items added to cart, along with the price. This led to a number of issues with how the price was displayed, which was solved 
+###### The displayCart function generated dynamically the items added to cart, along with the price. This led to a number of issues with how the price was displayed, which was solved using the toFixed method, with an argument of the number 2 specified. This ensured that the price did not include more than two numerical digits after the decimal. However, there still appears to be a problem, whereby if the last digit in the two digits after the decimal is 0, it'll only print out the first digit. You can see that here. 
+

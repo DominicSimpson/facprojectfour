@@ -17,3 +17,5 @@
 
 ![Screenshot of Cart page of Fruit Shop website](https://user-images.githubusercontent.com/52511353/190412278-7e32bccd-05cb-46bf-949a-663a20d57286.jpg)
 
+###### The first Apple Single item displays correctly in the Price column, but not in the Total, for which the final 0 after the decimal is missing. Likewise the Banana Bunch of Five order, which once again displays correct in the Price column, but not in the Total. However, as you can see in the Blackberries packet item, this time the Total amount does display correctly, due to it not containing a 0 as the second digit after the decimal. So the problem here can be summarised that the code was - and still is - not displaying the second digit after the decimal correctly if that digit is 0. This is something that I did not have time to correctly rectify.
+
